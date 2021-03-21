@@ -33,14 +33,20 @@
 				<i class="fas fa-quote-left"></i> {{ artist.seeking_description }} <i class="fas fa-quote-right"></i>
 			</div>
 		</div>
-		{% else %}	
+		{% else %}
 		<p class="not-seeking">
 			<i class="fas fa-moon"></i> Not currently seeking performance venues
 		</p>
 		{% endif %}
 	</div>
-	<div class="col-sm-6">
+	<div class="monospace">
 		<img src="{{ artist.image_link }}" alt="Venue Image" />
+	</div>
+	<div class="button">
+		<a href="/artists/{{artist.id}}/edit"><button class="btn btn-primary">Edit Artist</button></a>
+		<form>
+			<input type="submit" value="Delete Artist" class="btn btn-primary btn-danger" formmethod="post" formaction="{{ url_for('delete_artist', artist_id=artist.id)}}">
+		</form>
 	</div>
 </div>
 <section>
@@ -73,4 +79,3 @@
 </section>
 
 {% endblock %}
-

@@ -75,6 +75,19 @@
                   aria-label="Search">
               </form>
               {% endif %}
+              <!-- Carol added this 21-3-21-->
+              {% if (request.endpoint == 'shows') or
+                (request.endpoint == 'search_shows') or
+                (request.endpoint == 'show_shows') %}
+              <form class="search" method="post" action="/shows/search">
+                <input class="form-control"
+                  type="search"
+                  name="search_term"
+                  placeholder="Find a show by venue"
+                  aria-label="Search">
+              </form>
+              {% endif %}
+              <!-- Carol added this 21-3-21-->
             </li>
           </ul>
           <ul class="nav navbar-nav">
@@ -101,7 +114,7 @@
       {% endwith %}
 
       {% block content %}{% endblock %}
-      
+
     </main>
 
   </div>
